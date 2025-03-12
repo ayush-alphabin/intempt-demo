@@ -54,6 +54,7 @@ test('Verify that an experiment creation is successful', async () => {
 	await page.locator(locators['Span with text  A A']).click();
 	await page.locator(locators['P with text  Logout']).click();
 	await page.locator(locators['P with text  Login to your account']).waitFor({ state: "visible", timeout: 20000 });
-	await expect(page.locator(locators['P with text  Login to your account'])).toHaveText(`Login to your account`); await page.close();
+	await expect(page.locator(locators['P with text  Login to your account'])).toHaveText(`Login to your account`); 
 	await expect(page).toHaveTitle(`Welcome to Intempt!`);
+	await page.close();
 });
