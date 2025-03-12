@@ -1,1 +1,3 @@
-# intempt-demo
+# Intempt
+
+Project description: App demo

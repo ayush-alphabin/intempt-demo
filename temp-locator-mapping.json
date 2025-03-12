@@ -1,0 +1,21 @@
+{
+  "https://app.intempt.com/": [
+    {
+      "xpath": "html > body"
+    },
+    {
+      "xpath": "(//div[normalize-space()='Experiments'])[2]"
+    }
+  ],
+  "https://app.intempt.com/experiments": [
+    {
+      "xpath": "div > header > div"
+    },
+    {
+      "xpath": "//span[normalize-space()='Create experiment']"
+    },
+    {
+      "xpath": "div[role=\"menu\"] > div > div:nth-of-type(1)"
+    }
+  ]
+}
