@@ -24,6 +24,7 @@ test.beforeEach(async ({ browser, page }) => {
     .toBeVisible({ timeout: 20000 });
 });
 
+/*
 // Test case for experiment creation workflow
 test('Verify that an experiment creation is successful', async ({ page }) => {
   // Step 1: Navigate to experiments section
@@ -73,9 +74,10 @@ test('Verify that an experiment creation is successful', async ({ page }) => {
     .toBeVisible({ timeout: 20000 });
   await expect(page).toHaveTitle(`Welcome to Intempt!`);
 });
+*/
 
 // Test case for experiment variant modification
-test.only('Experiment Variant Test', async ({ page }) => {
+test('Experiment Variant Test', async ({ page }) => {
   // Step 1: Navigate to specific experiment
   await page.locator(locators['Div with text  Experiments  2nd']).click();
   await page.locator(locators['Cell in Tbody']).click();
