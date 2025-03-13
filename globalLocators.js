@@ -40,7 +40,15 @@ const locators = {
   "Span with text  Create experiment": `//span[normalize-space()='Create experiment']`,
   "Span with text  Edit  1st": `(//span[normalize-space()='Edit'])[1]`,
   "Span with text  Variant 1": `//span[normalize-space()='Variant 1']`,
-  "Span with text  Variants": `//span[normalize-space()='Variants']`
+  "Span with text  Variants": `//span[normalize-space()='Variants']`,
+  "Variant iFrame": '.body-content > iframe',
+  "Navigation H1 inside iFrame": `nav > h1`,
+  "Hero Content H2 inside iFrame": `.hero-content > h2`,
+  "Span Variant B": `//span[normalize-space()='Variant B']`,
+  "Div in Div 3rd": `.v-list.v-sheet.theme--light.v-list--dense.v-list--flat > div:nth-child(3)`,
+  "Span Variant A": `//span[normalize-space()='Variant A']`,
+  "Div H2 in iframe": 'div > h2',
+  "Publish button": `//p[normalize-space()='Publish']`
 };
 
 module.exports = { locators };
