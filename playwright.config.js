@@ -24,7 +24,7 @@ module.exports = defineConfig({
         '--start-maximized',
       ]
     },
-    headless: true,
+    headless: false,
     baseURL: 'https://app.intempt.com/',
     trace: 'on-first-retry',
   },

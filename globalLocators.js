@@ -1,5 +1,6 @@
 const locators = {
   "Button with text  Login": `//button[normalize-space()='Login']`,
+  "Cell in Tbody": `tbody > tr:nth-of-type(1) > td:nth-of-type(1)`,
   "Div in Div": `((//header)[2]//div)[1]`,
   "Div with text  elements": `//div[normalize-space()='elements']`,
   "Div with text  Experiments  2nd": `(//div[normalize-space()='Experiments'])[2]`,
@@ -18,12 +19,14 @@ const locators = {
   "P": `//p[contains(text(), 'Organization updated successfu')]`,
   "P in Div": `div > section > p:nth-of-type(1)`,
   "P in Form": `form > div:nth-of-type(1) > p`,
+  "P in Form_1": `form > div:nth-of-type(2) > p:nth-of-type(1)`,
   "P starts with text  Delete organization  3rd": `(//p[starts-with(normalize-space(), 'Delete organization')])[3]`,
   "P starts with text  Delete organization  4th": `(//p[starts-with(normalize-space(), 'Delete organization')])[4]`,
   "P with text  Client-side  2nd": `(//p[normalize-space()='Client-side'])[2]`,
   "P with text  Create": `//p[normalize-space()='Create']`,
   "P with text  Create an Experiment": `//p[normalize-space()='Create an Experiment']`,
   "P with text  Delete organization  2nd": `(//p[normalize-space()='Delete organization'])[2]`,
+  "P with text  Demo Experiment": `//p[normalize-space()='Demo Experiment']`,
   "P with text  Login to your account": `//p[normalize-space()='Login to your account']`,
   "P with text  Logout": `//p[normalize-space()='Logout']`,
   "P with text  New organization": `//p[normalize-space()='New organization']`,
@@ -35,7 +38,9 @@ const locators = {
   "Span with text  Back": `//span[normalize-space()='Back']`,
   "Span with text  Create an Experiment": `//span[normalize-space()='Create an Experiment']`,
   "Span with text  Create experiment": `//span[normalize-space()='Create experiment']`,
-  "Span with text  Variant 1": `//span[normalize-space()='Variant 1']`
+  "Span with text  Edit  1st": `(//span[normalize-space()='Edit'])[1]`,
+  "Span with text  Variant 1": `//span[normalize-space()='Variant 1']`,
+  "Span with text  Variants": `//span[normalize-space()='Variants']`
 };
 
 module.exports = { locators };

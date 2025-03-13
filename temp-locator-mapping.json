@@ -1,21 +1,42 @@
 {
   "https://app.intempt.com/": [
     {
-      "xpath": "html > body"
-    },
-    {
       "xpath": "(//div[normalize-space()='Experiments'])[2]"
     }
   ],
   "https://app.intempt.com/experiments": [
     {
-      "xpath": "div > header > div"
+      "xpath": "html > body"
     },
     {
-      "xpath": "//span[normalize-space()='Create experiment']"
+      "xpath": "tbody > tr:nth-of-type(1) > td:nth-of-type(1)"
+    }
+  ],
+  "https://app.intempt.com/client-side-experiments/7294": [
+    {
+      "xpath": "//p[normalize-space()='Demo Experiment']"
     },
     {
-      "xpath": "div[role=\"menu\"] > div > div:nth-of-type(1)"
+      "xpath": "//span[normalize-space()='Variants']"
+    }
+  ],
+  "https://app.intempt.com/client-side-experiments/7294?tab=variants": [
+    {
+      "xpath": "form > div:nth-of-type(2) > p:nth-of-type(1)"
+    },
+    {
+      "xpath": "(//span[normalize-space()='Edit'])[1]"
+    }
+  ],
+  "https://app.intempt.com/web-editor?type=variant&id=7294&facetId=7153&url=https%3A%2F%2Fayush-alphabin.github.io%2Fexample-site%2F": [
+    {
+      "xpath": "article > div:nth-of-type(2) > div"
+    },
+    {
+      "xpath": "div[role=\"listitem\"] > button[role=\"button\"]"
+    },
+    {
+      "xpath": "(//div[normalize-space()='PROPERTIES'])[1]"
     }
   ]
 }
