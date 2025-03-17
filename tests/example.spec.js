@@ -93,18 +93,19 @@ test('Experiment Variant Test', async ({ page }) => {
 
   // Step 4: Edit Variant B content
   await page.locator(locators['Span with text  Edit  1st']).click();
-  
+
   // Handle iframe content editing
   const frameLocator = page.frameLocator(locators["Variant iFrame"]);
-  
+
   // Edit navigation header
   await frameLocator.locator(locators["Navigation H1 inside iFrame"]).dblclick();
   await frameLocator.locator(locators["Navigation H1 inside iFrame"]).fill('Test Cpnnetn');
   await page.keyboard.press('Escape'); // Exit edit mode
-  await page.waitForTimeout(500); // Wait for editor to stabilize
+  await page.locator(`//div[contains(text(),' id')][contains(@class,'v-input')]/..//input`).fill('test-id');
+  await frameLocator.locator(locators["Hero Content H2 inside iFrame"]).click({ force: true });
+  await page.waitForTimeout(5000); // Wait for editor to stabilize
 
   // Step 5: Switch between variants
-  await frameLocator.locator(locators["Hero Content H2 inside iFrame"]).click({ force: true });
   await page.locator(locators["Span Variant B"]).click();
   await page.locator(locators["Div in Div 3rd"]).click();
   await page.locator(locators["Span Variant A"]).click();
@@ -113,10 +114,14 @@ test('Experiment Variant Test', async ({ page }) => {
   await frameLocator.locator(locators["Div H2 in iframe"]).dblclick();
   await frameLocator.locator(locators["Div H2 in iframe"]).fill('Variant A UPDATED NAV H2');
   await page.keyboard.press('Escape'); // Exit edit mode
-  await page.waitForTimeout(500); // Wait for editor to stabilize
+  await page.locator(`//div[contains(text(),' id')][contains(@class,'v-input')]/..//input`).fill('test-id');
+  await frameLocator.locator(locators["Hero Content H2 inside iFrame"]).click({ force: true });
+  await page.waitForTimeout(5000); // Wait for editor to stabilize
 
   // Step 7: Publish changes
   await page.locator(locators["Publish button"]).click();
+  await page.locator(locators["Publish button"]).click();
+  await page.waitForTimeout(1000);
 
   // Step 8: Verify successful update
   await expect(page.locator(locators['P with text  Variant created successfully']))

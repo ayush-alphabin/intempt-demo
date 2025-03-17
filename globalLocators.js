@@ -30,7 +30,7 @@ const locators = {
   "P with text  Login to your account": `//p[normalize-space()='Login to your account']`,
   "P with text  Logout": `//p[normalize-space()='Logout']`,
   "P with text  New organization": `//p[normalize-space()='New organization']`,
-  "P with text  Variant created successfully": `//p[normalize-space()='Variant created successfully']`,
+  "P with text  Variant created successfully": `//p[contains(text(), ' Variant updated successfully ')]`,
   "P with text  Web editor is closed": `//p[normalize-space()='Web editor is closed']`,
   "P_1": `//p[contains(text(), 'Organization deleted successfu')]`,
   "Password Input": `input[name="password"]`,
@@ -45,10 +45,11 @@ const locators = {
   "Navigation H1 inside iFrame": `nav > h1`,
   "Hero Content H2 inside iFrame": `.hero-content > h2`,
   "Span Variant B": `//span[normalize-space()='Variant B']`,
-  "Div in Div 3rd": `.v-list.v-sheet.theme--light.v-list--dense.v-list--flat > div:nth-child(3)`,
+  "Div in Div 3rd": `(//label[normalize-space()='Variant A'])[1]`,
   "Span Variant A": `//span[normalize-space()='Variant A']`,
   "Div H2 in iframe": 'div > h2',
-  "Publish button": `//p[normalize-space()='Publish']`
+  "Publish button": `//p[normalize-space()='Publish']`,
+  "Shadow Host": `body`
 };
 
 module.exports = { locators };

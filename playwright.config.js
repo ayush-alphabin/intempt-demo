@@ -19,7 +19,7 @@ module.exports = defineConfig({
   },
   use: {
     launchOptions: {
-      slowMo: 0,
+      slowMo: 100,
       args: [
         '--start-maximized',
       ]

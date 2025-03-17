@@ -1,0 +1,166 @@
+{
+  "config": {
+    "configFile": "/Users/alphabin/Desktop/intempt-demo/playwright.config.js",
+    "rootDir": "/Users/alphabin/Desktop/intempt-demo/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "./test-results",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "./test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/alphabin/Desktop/intempt-demo/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/alphabin/Desktop/intempt-demo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.51.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "example.spec.js",
+      "file": "example.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Experiment Variant Test",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 41256,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "FILL → (//input[@placeholder='Enter your email'])[1] @ https://auth.intempt.com/login?state=hKFo2SBIOGQzMk1vXzRXSXVQRTNicTZoZGlWT0d3ekoyazZxa6FupWxvZ2luo3RpZNkgWmJhLVVDdW1VUVdQOHdDdXdJcUZsOUI2eWFnekNjRjajY2lk2SBPTExZTGNWcFpWaHBPMEl0V0FTS2NWUDY0RW1yZWU1Uw&client=OLLYLcVpZVhpO0ItWASKcVP64Emree5S&protocol=oauth2&scope=openid%20profile%20email%20offline_access&audience=https%3A%2F%2Fapi.intempt.com&redirect_uri=https%3A%2F%2Fapp.intempt.com&response_type=code&response_mode=query&nonce=U3FGRzRYbzNoUVVXVlZ6WjBXWFh1a1J2c1A5ZHNwYk5nU2xZbTRUV21wdA%3D%3D&code_challenge=3X1DmXMR13hj8N4151tRLz2BMVN1G-1LxvHj1cvG2Ac&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtc3BhLWpzIiwidmVyc2lvbiI6IjIuMS4zIn0%3D\n"
+                    },
+                    {
+                      "text": "FILL → input[name=\"password\"] @ https://auth.intempt.com/login?state=hKFo2SBIOGQzMk1vXzRXSXVQRTNicTZoZGlWT0d3ekoyazZxa6FupWxvZ2luo3RpZNkgWmJhLVVDdW1VUVdQOHdDdXdJcUZsOUI2eWFnekNjRjajY2lk2SBPTExZTGNWcFpWaHBPMEl0V0FTS2NWUDY0RW1yZWU1Uw&client=OLLYLcVpZVhpO0ItWASKcVP64Emree5S&protocol=oauth2&scope=openid%20profile%20email%20offline_access&audience=https%3A%2F%2Fapi.intempt.com&redirect_uri=https%3A%2F%2Fapp.intempt.com&response_type=code&response_mode=query&nonce=U3FGRzRYbzNoUVVXVlZ6WjBXWFh1a1J2c1A5ZHNwYk5nU2xZbTRUV21wdA%3D%3D&code_challenge=3X1DmXMR13hj8N4151tRLz2BMVN1G-1LxvHj1cvG2Ac&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtc3BhLWpzIiwidmVyc2lvbiI6IjIuMS4zIn0%3D\n"
+                    },
+                    {
+                      "text": "CLICK → //button[normalize-space()='Login'] @ https://auth.intempt.com/login?state=hKFo2SBIOGQzMk1vXzRXSXVQRTNicTZoZGlWT0d3ekoyazZxa6FupWxvZ2luo3RpZNkgWmJhLVVDdW1VUVdQOHdDdXdJcUZsOUI2eWFnekNjRjajY2lk2SBPTExZTGNWcFpWaHBPMEl0V0FTS2NWUDY0RW1yZWU1Uw&client=OLLYLcVpZVhpO0ItWASKcVP64Emree5S&protocol=oauth2&scope=openid%20profile%20email%20offline_access&audience=https%3A%2F%2Fapi.intempt.com&redirect_uri=https%3A%2F%2Fapp.intempt.com&response_type=code&response_mode=query&nonce=U3FGRzRYbzNoUVVXVlZ6WjBXWFh1a1J2c1A5ZHNwYk5nU2xZbTRUV21wdA%3D%3D&code_challenge=3X1DmXMR13hj8N4151tRLz2BMVN1G-1LxvHj1cvG2Ac&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtc3BhLWpzIiwidmVyc2lvbiI6IjIuMS4zIn0%3D\n"
+                    },
+                    {
+                      "text": "CLICK → (//div[normalize-space()='Experiments'])[2] @ https://app.intempt.com/\n"
+                    },
+                    {
+                      "text": "CLICK → tbody > tr:nth-of-type(1) > td:nth-of-type(1) @ https://app.intempt.com/\n"
+                    },
+                    {
+                      "text": "CLICK → //span[normalize-space()='Variants'] @ https://app.intempt.com/client-side-experiments/7294\n"
+                    },
+                    {
+                      "text": "CLICK → (//span[normalize-space()='Edit'])[1] @ https://app.intempt.com/client-side-experiments/7294?tab=variants\n"
+                    },
+                    {
+                      "text": "FILL → //div[contains(text(),' id')][contains(@class,'v-input')]/..//input @ https://app.intempt.com/web-editor?type=variant&id=7294&facetId=7153&url=https%3A%2F%2Fayush-alphabin.github.io%2Fexample-site%2F\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 5000 @ https://app.intempt.com/web-editor?type=variant&id=7294&facetId=7153&url=https%3A%2F%2Fayush-alphabin.github.io%2Fexample-site%2F\n"
+                    },
+                    {
+                      "text": "CLICK → //span[normalize-space()='Variant B'] @ https://app.intempt.com/web-editor?type=variant&id=7294&facetId=7153&url=https%3A%2F%2Fayush-alphabin.github.io%2Fexample-site%2F\n"
+                    },
+                    {
+                      "text": "CLICK → (//label[normalize-space()='Variant A'])[1] @ https://app.intempt.com/web-editor?type=variant&id=7294&facetId=7153&url=https%3A%2F%2Fayush-alphabin.github.io%2Fexample-site%2F\n"
+                    },
+                    {
+                      "text": "CLICK → //span[normalize-space()='Variant A'] @ https://app.intempt.com/web-editor?type=variant&id=7294&facetId=7152&url=https%3A%2F%2Fayush-alphabin.github.io%2Fexample-site%2F\n"
+                    },
+                    {
+                      "text": "FILL → //div[contains(text(),' id')][contains(@class,'v-input')]/..//input @ https://app.intempt.com/web-editor?type=variant&id=7294&facetId=7152&url=https%3A%2F%2Fayush-alphabin.github.io%2Fexample-site%2F\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 5000 @ https://app.intempt.com/web-editor?type=variant&id=7294&facetId=7152&url=https%3A%2F%2Fayush-alphabin.github.io%2Fexample-site%2F\n"
+                    },
+                    {
+                      "text": "CLICK → //p[normalize-space()='Publish'] @ https://app.intempt.com/web-editor?type=variant&id=7294&facetId=7152&url=https%3A%2F%2Fayush-alphabin.github.io%2Fexample-site%2F\n"
+                    },
+                    {
+                      "text": "CLICK → //p[normalize-space()='Publish'] @ https://app.intempt.com/web-editor?type=variant&id=7294&facetId=7152&url=https%3A%2F%2Fayush-alphabin.github.io%2Fexample-site%2F\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 1000 @ https://app.intempt.com/web-editor?type=variant&id=7294&facetId=7152&url=https%3A%2F%2Fayush-alphabin.github.io%2Fexample-site%2F\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-03-17T13:04:13.396Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dd9b2edffe9b7501040c-28d445b98127f75c0bdb",
+          "file": "example.spec.js",
+          "line": 80,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-03-17T13:04:13.033Z",
+    "duration": 43455.888999999996,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
