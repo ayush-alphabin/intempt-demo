@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
+const { defineConfig, devices } = require('@playwright/test');
 
 module.exports = defineConfig({
   testDir: './tests',
@@ -33,7 +33,14 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chromium'], viewport: null, permissions: ['clipboard-read', 'clipboard-write'] },
+      use: {
+        ...devices['Desktop Chromium'],
+        launchOptions: {
+          args: ['--start-maximized'],
+        },
+        viewport: null, // This will allow the browser to use the full screen size
+        permissions: ['clipboard-read', 'clipboard-write']
+      },
     },
   ],
 });
