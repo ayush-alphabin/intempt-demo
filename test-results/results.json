@@ -1,0 +1,347 @@
+{
+  "config": {
+    "configFile": "/Users/alphabin/Desktop/intempt-demo/playwright.config.js",
+    "rootDir": "/Users/alphabin/Desktop/intempt-demo/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "./test-results",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "./test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/alphabin/Desktop/intempt-demo/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/alphabin/Desktop/intempt-demo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.51.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "journeys.spec.js",
+      "file": "journeys.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Verify element drops on the canvas",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 34186,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "FILL → (//input[@placeholder='Enter your email'])[1] @ https://auth.intempt.com/login?state=hKFo2SAwVDJ5V3Rob0NZbTR1a0JzZ0FCUmtveEVoX2pCUHJTb6FupWxvZ2luo3RpZNkgNUdYckJDcm5kR2ttR3VVUnFvVDNvMjFsVEhyeC1NNF-jY2lk2SBPTExZTGNWcFpWaHBPMEl0V0FTS2NWUDY0RW1yZWU1Uw&client=OLLYLcVpZVhpO0ItWASKcVP64Emree5S&protocol=oauth2&scope=openid%20profile%20email%20offline_access&audience=https%3A%2F%2Fapi.intempt.com&redirect_uri=https%3A%2F%2Fapp.intempt.com&response_type=code&response_mode=query&nonce=a1RxYnNJVS00RGR2NEhOZjN5UkdwUTloR1MyZE4ycGlsTEljaWZMd0owaA%3D%3D&code_challenge=us9YcBfRnbiF1B1VWi7yqx1e-9jBiMmHFtvctBbNCCs&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtc3BhLWpzIiwidmVyc2lvbiI6IjIuMS4zIn0%3D\n"
+                    },
+                    {
+                      "text": "FILL → input[name=\"password\"] @ https://auth.intempt.com/login?state=hKFo2SAwVDJ5V3Rob0NZbTR1a0JzZ0FCUmtveEVoX2pCUHJTb6FupWxvZ2luo3RpZNkgNUdYckJDcm5kR2ttR3VVUnFvVDNvMjFsVEhyeC1NNF-jY2lk2SBPTExZTGNWcFpWaHBPMEl0V0FTS2NWUDY0RW1yZWU1Uw&client=OLLYLcVpZVhpO0ItWASKcVP64Emree5S&protocol=oauth2&scope=openid%20profile%20email%20offline_access&audience=https%3A%2F%2Fapi.intempt.com&redirect_uri=https%3A%2F%2Fapp.intempt.com&response_type=code&response_mode=query&nonce=a1RxYnNJVS00RGR2NEhOZjN5UkdwUTloR1MyZE4ycGlsTEljaWZMd0owaA%3D%3D&code_challenge=us9YcBfRnbiF1B1VWi7yqx1e-9jBiMmHFtvctBbNCCs&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtc3BhLWpzIiwidmVyc2lvbiI6IjIuMS4zIn0%3D\n"
+                    },
+                    {
+                      "text": "CLICK → //button[normalize-space()='Login'] @ https://auth.intempt.com/login?state=hKFo2SAwVDJ5V3Rob0NZbTR1a0JzZ0FCUmtveEVoX2pCUHJTb6FupWxvZ2luo3RpZNkgNUdYckJDcm5kR2ttR3VVUnFvVDNvMjFsVEhyeC1NNF-jY2lk2SBPTExZTGNWcFpWaHBPMEl0V0FTS2NWUDY0RW1yZWU1Uw&client=OLLYLcVpZVhpO0ItWASKcVP64Emree5S&protocol=oauth2&scope=openid%20profile%20email%20offline_access&audience=https%3A%2F%2Fapi.intempt.com&redirect_uri=https%3A%2F%2Fapp.intempt.com&response_type=code&response_mode=query&nonce=a1RxYnNJVS00RGR2NEhOZjN5UkdwUTloR1MyZE4ycGlsTEljaWZMd0owaA%3D%3D&code_challenge=us9YcBfRnbiF1B1VWi7yqx1e-9jBiMmHFtvctBbNCCs&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtc3BhLWpzIiwidmVyc2lvbiI6IjIuMS4zIn0%3D\n"
+                    },
+                    {
+                      "text": "CLICK → (//div[normalize-space()='Journeys'])[2] @ https://app.intempt.com/\n"
+                    },
+                    {
+                      "text": "CLICK → td.text-start:has-text(\"Demo Journey\") @ https://app.intempt.com/journeys\n"
+                    },
+                    {
+                      "text": "WAITFORSELECTOR → .x6-graph-scroller-content @ https://app.intempt.com/journeys\n"
+                    },
+                    {
+                      "text": "WAITFORSELECTOR → .x6-graph-svg @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "Starting drag and drop operation for \"On condition\"...\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 1000 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "EVALUATE → //div[@draggable='true']//p[normalize-space()=\"On condition\"] @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "EVALUATE → async ([selector, canvasSelector, targetX, targetY]) => {\n        const element = document.querySelector(selector);\n        const canvas = document.querySelector(canvasSelector);\n        if (!element || !canvas) return false;\n        const rect = element.getBoundingClientRect();\n        const canvasRect = canvas.getBoundingClientRect();\n\n        // Create and dispatch dragstart\n        const dragStartEvent = new DragEvent('dragstart', {\n          bubbles: true,\n          cancelable: true,\n          clientX: rect.left + rect.width / 2,\n          clientY: rect.top + rect.height / 2\n        });\n        element.dispatchEvent(dragStartEvent);\n\n        // Create and dispatch dragover\n        const dragOverEvent = new DragEvent('dragover', {\n          bubbles: true,\n          cancelable: true,\n          clientX: canvasRect.left + targetX,\n          clientY: canvasRect.top + targetY\n        });\n        canvas.dispatchEvent(dragOverEvent);\n\n        // Create and dispatch drop\n        const dropEvent = new DragEvent('drop', {\n          bubbles: true,\n          cancelable: true,\n          clientX: canvasRect.left + targetX,\n          clientY: canvasRect.top + targetY,\n          dataTransfer: dragStartEvent.dataTransfer\n        });\n        canvas.dispatchEvent(dropEvent);\n\n        // Create and dispatch dragend\n        const dragEndEvent = new DragEvent('dragend', {\n          bubbles: true,\n          cancelable: true,\n          clientX: canvasRect.left + targetX,\n          clientY: canvasRect.top + targetY\n        });\n        element.dispatchEvent(dragEndEvent);\n        return true;\n      } @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "HOVER → //div[@draggable='true']//p[normalize-space()=\"On condition\"] @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 500 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 500 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 2000 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "Completed drag and drop for \"On condition\"\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 1000 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "Verifying element \"OnCondition\" with content \"On condition\"\n"
+                    },
+                    {
+                      "text": "Found 1 elements with prefix onCondition-trigger\n"
+                    },
+                    {
+                      "text": "Found matching element at index 0 using selector div[class*=\"verticalSpacer\"] + p\n"
+                    },
+                    {
+                      "text": "Starting drag and drop operation for \"Send SMS\"...\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 1000 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "EVALUATE → //div[@draggable='true']//p[normalize-space()=\"Send SMS\"] @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "EVALUATE → async ([selector, canvasSelector, targetX, targetY]) => {\n        const element = document.querySelector(selector);\n        const canvas = document.querySelector(canvasSelector);\n        if (!element || !canvas) return false;\n        const rect = element.getBoundingClientRect();\n        const canvasRect = canvas.getBoundingClientRect();\n\n        // Create and dispatch dragstart\n        const dragStartEvent = new DragEvent('dragstart', {\n          bubbles: true,\n          cancelable: true,\n          clientX: rect.left + rect.width / 2,\n          clientY: rect.top + rect.height / 2\n        });\n        element.dispatchEvent(dragStartEvent);\n\n        // Create and dispatch dragover\n        const dragOverEvent = new DragEvent('dragover', {\n          bubbles: true,\n          cancelable: true,\n          clientX: canvasRect.left + targetX,\n          clientY: canvasRect.top + targetY\n        });\n        canvas.dispatchEvent(dragOverEvent);\n\n        // Create and dispatch drop\n        const dropEvent = new DragEvent('drop', {\n          bubbles: true,\n          cancelable: true,\n          clientX: canvasRect.left + targetX,\n          clientY: canvasRect.top + targetY,\n          dataTransfer: dragStartEvent.dataTransfer\n        });\n        canvas.dispatchEvent(dropEvent);\n\n        // Create and dispatch dragend\n        const dragEndEvent = new DragEvent('dragend', {\n          bubbles: true,\n          cancelable: true,\n          clientX: canvasRect.left + targetX,\n          clientY: canvasRect.top + targetY\n        });\n        element.dispatchEvent(dragEndEvent);\n        return true;\n      } @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "HOVER → //div[@draggable='true']//p[normalize-space()=\"Send SMS\"] @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 500 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 50 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 500 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 2000 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "Completed drag and drop for \"Send SMS\"\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 1000 @ https://app.intempt.com/journeys/8839\n"
+                    },
+                    {
+                      "text": "Verifying element \"SendSMS\" with content \"Send SMS\"\n"
+                    },
+                    {
+                      "text": "Found 1 elements with prefix sendSMS-action\n"
+                    },
+                    {
+                      "text": "Found matching element at index 0 using selector div[class*=\"verticalSpacer\"] + p\n"
+                    },
+                    {
+                      "text": "WAITFORTIMEOUT → 5000 @ https://app.intempt.com/journeys/8839\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Dragging element \"On condition\"",
+                      "duration": 6410
+                    },
+                    {
+                      "title": "Dragging element \"Send SMS\"",
+                      "duration": 6241
+                    }
+                  ],
+                  "startTime": "2025-03-22T13:28:02.856Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be27603e9a4df7bd9652-4cf76d1b5f47caaca39a",
+          "file": "journeys.spec.js",
+          "line": 267,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-03-22T13:28:02.492Z",
+    "duration": 34827.434,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

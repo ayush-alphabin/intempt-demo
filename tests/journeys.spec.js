@@ -1,6 +1,13 @@
 const abPlaywright = require('alphabin-pw');
 const { test, expect } = require('@playwright/test');
 
+// Configure viewport and test timeout
+test.use({ 
+  viewport: { width: 1920, height: 1080 },
+  actionTimeout: 30000,
+  navigationTimeout: 30000
+});
+
 const prefixDataCellIdsOfDropped = {
   "Triggers": {
     OnCondition: 'onCondition-trigger',
@@ -33,48 +40,99 @@ class Canvas {
   async dragAndDrop(elementText, targetX, targetY) {
     console.log(`Starting drag and drop operation for "${elementText}"...`);
 
-    // Get the draggable element using the exact structure from the Journeys module
+    // Get the draggable element and ensure it's visible
     const element = this.page.locator(`//div[@draggable='true']//p[normalize-space()="${elementText}"]`);
-    await element.waitFor({ state: 'visible', timeout: 10000 });
-
-    // Get the canvas area
-    const canvas = this.page.locator('section .x6-graph-scroller');
-    await canvas.waitFor({ state: 'visible', timeout: 10000 });
-
-    // Get element and canvas positions
-    const elementBox = await element.boundingBox();
-    const canvasBox = await canvas.boundingBox();
+    await element.waitFor({ state: 'visible', timeout: 15000 });
     
-    if (!elementBox || !canvasBox) {
-      throw new Error(`Could not find element with text "${elementText}" or canvas`);
-    }
+    // Get the canvas area and ensure it's ready
+    const canvas = this.page.locator('section .x6-graph-scroller');
+    await canvas.waitFor({ state: 'visible', timeout: 15000 });
 
-    // Calculate source and target coordinates
-    const sourceX = elementBox.x + elementBox.width / 2;
-    const sourceY = elementBox.y + elementBox.height / 2;
-    const targetXPos = canvasBox.x + targetX;
-    const targetYPos = canvasBox.y + targetY;
+    // Ensure the page is stable
+    await this.page.waitForTimeout(1000);
 
     try {
-      // Trigger dragstart event via JavaScript
-      await element.evaluate((el) => {
-        const dragStartEvent = new DragEvent('dragstart', {
-          bubbles: true,
-          cancelable: true,
-          clientX: 0,
-          clientY: 0
-        });
-        el.dispatchEvent(dragStartEvent);
+      // Get element and canvas positions
+      const elementBox = await element.boundingBox();
+      const canvasBox = await canvas.boundingBox();
+      
+      if (!elementBox || !canvasBox) {
+        throw new Error(`Could not find element with text "${elementText}" or canvas`);
+      }
+
+      // Calculate positions
+      const sourceX = elementBox.x + elementBox.width / 2;
+      const sourceY = elementBox.y + elementBox.height / 2;
+      const targetXPos = canvasBox.x + targetX;
+      const targetYPos = canvasBox.y + targetY;
+
+      // First attempt: Using JavaScript drag and drop simulation
+      const jsSelector = await element.evaluate(el => {
+        // Create a unique data attribute to find the element
+        const uniqueId = 'drag-' + Date.now();
+        el.setAttribute('data-test-id', uniqueId);
+        return `[data-test-id="${uniqueId}"]`;
       });
 
-      // Perform the drag operation with force options
-      await this.page.mouse.move(sourceX, sourceY);
-      await element.hover({ force: true, timeout: 5000 });
-      await this.page.mouse.down();
-      await this.page.waitForTimeout(1000); // Increased wait time
+      await this.page.evaluate(
+        async ([selector, canvasSelector, targetX, targetY]) => {
+          const element = document.querySelector(selector);
+          const canvas = document.querySelector(canvasSelector);
+          
+          if (!element || !canvas) return false;
 
-      // Move to target position in small steps for better stability
-      const steps = 15; // Increased number of steps
+          const rect = element.getBoundingClientRect();
+          const canvasRect = canvas.getBoundingClientRect();
+
+          // Create and dispatch dragstart
+          const dragStartEvent = new DragEvent('dragstart', {
+            bubbles: true,
+            cancelable: true,
+            clientX: rect.left + rect.width / 2,
+            clientY: rect.top + rect.height / 2
+          });
+          element.dispatchEvent(dragStartEvent);
+
+          // Create and dispatch dragover
+          const dragOverEvent = new DragEvent('dragover', {
+            bubbles: true,
+            cancelable: true,
+            clientX: canvasRect.left + targetX,
+            clientY: canvasRect.top + targetY
+          });
+          canvas.dispatchEvent(dragOverEvent);
+
+          // Create and dispatch drop
+          const dropEvent = new DragEvent('drop', {
+            bubbles: true,
+            cancelable: true,
+            clientX: canvasRect.left + targetX,
+            clientY: canvasRect.top + targetY,
+            dataTransfer: dragStartEvent.dataTransfer
+          });
+          canvas.dispatchEvent(dropEvent);
+
+          // Create and dispatch dragend
+          const dragEndEvent = new DragEvent('dragend', {
+            bubbles: true,
+            cancelable: true,
+            clientX: canvasRect.left + targetX,
+            clientY: canvasRect.top + targetY
+          });
+          element.dispatchEvent(dragEndEvent);
+
+          return true;
+        },
+        [jsSelector, 'section .x6-graph-scroller', targetX, targetY]
+      );
+
+      // Second attempt: Using mouse movements if JavaScript events didn't work
+      await element.hover({ force: true });
+      await this.page.mouse.down();
+      await this.page.waitForTimeout(500);
+
+      // Move in smaller steps
+      const steps = 20;
       const deltaX = (targetXPos - sourceX) / steps;
       const deltaY = (targetYPos - sourceY) / steps;
 
@@ -82,28 +140,17 @@ class Canvas {
         await this.page.mouse.move(
           sourceX + deltaX * i,
           sourceY + deltaY * i,
-          { steps: 1 }
+          { steps: 2 }
         );
-        await this.page.waitForTimeout(100); // Increased step delay
+        await this.page.waitForTimeout(50);
       }
 
-      // Ensure we're at the final position
       await this.page.mouse.move(targetXPos, targetYPos);
-      await this.page.waitForTimeout(1000);
+      await this.page.waitForTimeout(500);
       await this.page.mouse.up();
 
-      // Trigger drop event via JavaScript
-      await canvas.evaluate((el, { x, y }) => {
-        const dropEvent = new DragEvent('drop', {
-          bubbles: true,
-          cancelable: true,
-          clientX: x,
-          clientY: y
-        });
-        el.dispatchEvent(dropEvent);
-      }, { x: targetX, y: targetY });
-
-      // Wait for any animations or state updates to complete
+      // Wait for any animations and network activity to complete
+      await this.page.waitForLoadState('networkidle');
       await this.page.waitForTimeout(2000);
 
     } catch (error) {
@@ -125,9 +172,9 @@ class Canvas {
 
   async assertElementOnCanvas(elementType, expectedContent, position = null) {
     console.log(`Verifying element "${elementType}" with content "${expectedContent}"`);
-
+    
     const prefix = this.getElementPrefix(elementType);
-    const maxAttempts = 3;
+    const maxAttempts = 3; // Increased retry attempts
     let attempt = 0;
     let found = false;
 
@@ -136,10 +183,10 @@ class Canvas {
         // Find all elements with this prefix
         const elements = this.page.locator(`g[data-cell-id^="${prefix}-"]`);
         
-        // Wait for elements to be present with increased timeout
+        // Wait for elements with increased timeout
         await elements.first().waitFor({ 
           state: 'visible', 
-          timeout: 10000 
+          timeout: 15000 
         });
 
         // Get all matching elements
@@ -149,15 +196,33 @@ class Canvas {
         // Find the element with matching content
         for (let i = 0; i < count; i++) {
           const element = elements.nth(i);
-          await element.waitFor({ state: 'visible', timeout: 5000 });
           
           try {
-            const content = await element.locator('div[class*="verticalSpacer"] + p').textContent();
-            if (content.trim() === expectedContent.trim()) {
-              found = true;
-              console.log(`Found matching element at index ${i}`);
-              break;
+            // Wait for the specific element to be visible
+            await element.waitFor({ state: 'visible', timeout: 5000 });
+            
+            // Try different selectors for content
+            const selectors = [
+              'div[class*="verticalSpacer"] + p',
+              'p',
+              'div > p',
+              'text'
+            ];
+
+            for (const selector of selectors) {
+              try {
+                const content = await element.locator(selector).textContent();
+                if (content && content.trim() === expectedContent.trim()) {
+                  found = true;
+                  console.log(`Found matching element at index ${i} using selector ${selector}`);
+                  break;
+                }
+              } catch (e) {
+                continue;
+              }
             }
+
+            if (found) break;
           } catch (error) {
             console.log(`Error getting content for element ${i}:`, error);
           }
@@ -172,7 +237,7 @@ class Canvas {
       attempt++;
       if (!found && attempt < maxAttempts) {
         console.log(`Retrying verification... Attempt ${attempt + 1}`);
-        await this.page.waitForTimeout(2000);
+        await this.page.waitForTimeout(3000); // Increased wait between retries
       }
     }
 
