@@ -138,3 +138,5 @@ dist
 test-results/.last-run.json
 test-results/index.html
 test-results/results.json
+
+.DS_Store
