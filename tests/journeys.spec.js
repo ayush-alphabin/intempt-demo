@@ -1,4 +1,3 @@
-const { locators } = require('../globalLocators.js');
 const abPlaywright = require('alphabin-pw');
 const { test, expect } = require('@playwright/test');
 
