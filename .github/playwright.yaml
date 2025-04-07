@@ -1,0 +1,35 @@
+name: Playwright Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          # Set fetch-depth to 0 if you want the full commit history (optional)
+          fetch-depth: 1
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20  # or 18, etc.
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: npx playwright test
