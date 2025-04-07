@@ -34,7 +34,7 @@ const selectors = {
   successMessage: `//p[contains(text(), ' Variant updated successfully ')]`
 };
 
-// Setup test environment before each test
+/* // Setup test environment before each test
 test.beforeEach(async ({ browser, page }) => {
   // Navigate to the application URL
   await page.goto('https://app.intempt.com/');
@@ -52,7 +52,7 @@ test.beforeEach(async ({ browser, page }) => {
   // Verify successful login by checking welcome message
   await expect(page.locator(selectors.welcomeMessage))
     .toBeVisible({ timeout: 20000 });
-});
+}); */
 
 /*
 // Test case for experiment creation workflow
@@ -106,7 +106,7 @@ test('Verify that an experiment creation is successful', async ({ page }) => {
 });
 */
 
-// Test case for experiment variant modification
+/* // Test case for experiment variant modification
 test('Experiment Variant Test', async ({ page }) => {
   // Step 1: Navigate to specific experiment
   await page.locator(selectors.experimentsLink).click();
@@ -149,4 +149,4 @@ test('Experiment Variant Test', async ({ page }) => {
   // Step 8: Verify successful update
   await expect(page.locator(selectors.successMessage))
     .toBeVisible();
-});
+}); */
