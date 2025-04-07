@@ -1,4 +1,35 @@
-class Canvas {
+const { expect } = require('@playwright/test');
+
+const prefixDataCellIdsOfDropped = {
+  "Triggers": {
+    OnCondition: 'onCondition-trigger',
+    SpecificUsers: 'users-trigger'
+  },
+  "Actions": {
+    SendEmail: 'sendEmail-action',
+    SendSMS: 'sendSMS-action',
+    SendWebhook: 'sendWebhook-action',
+    SendSlackNotification: 'sendSlackNotification-action',
+    UpdateAttribute: 'updateAttribute-action',
+    SendEmailNotification: 'sendEmailNotification-action',
+    CreateHubspotTask: 'createHubspotTask-action',
+    AddToHubspotList: 'addToHubSpotList-action',
+    UpdateHubspotProperty: 'updateHubSpotProperty-action',
+  },
+  "Controls": {
+    Condition: 'condition-condition',
+    Delay: 'delay-control',
+    WaitUntil: 'waitUntil-control'
+  }
+};
+
+const elementConnectorType = {
+  Triggers: 'trigger',
+  Actions: 'action',
+  Controls: 'control'
+};
+
+export class Canvas {
   constructor(page) {
     this.page = page;
     this.prefixDataCellIdsOfDropped = prefixDataCellIdsOfDropped;
@@ -209,39 +240,26 @@ class Canvas {
     expect(found).toBe(true, `Element "${elementType}" with content "${expectedContent}" not found on canvas after ${maxAttempts} attempts`);
   }
 
+  getConnectorCategory(elementType) {
+    const category = Object.entries(prefixDataCellIdsOfDropped).find(
+      ([_, elements]) => elementType in elements
+    )?.[0];
+    return elementConnectorType[category] || category;
+  };
+
   async connectElements(sourceElement, targetElement) {
     console.log(`Connecting ${sourceElement.type} and ${targetElement.type}...`);
 
     // Get categories for source and target elements
-    const getConnectorCategory = (elementType) => {
-      const category = Object.entries(prefixDataCellIdsOfDropped).find(
-        ([_, elements]) => elementType in elements
-      )?.[0];
-      return elementConnectorType[category] || category;
-    };
-
-    const sourceConnectorCategory = getConnectorCategory(sourceElement.type);
-    const targetConnectorCategory = getConnectorCategory(targetElement.type);
+    const sourceConnectorCategory = this.getConnectorCategory(sourceElement.type);
+    const targetConnectorCategory = this.getConnectorCategory(targetElement.type);
 
     if (!sourceConnectorCategory || !targetConnectorCategory) {
       throw new Error('Could not determine element categories');
     }
 
-    console.log(`Source connector category: ${sourceConnectorCategory}`);
-    console.log(`Target connector category: ${targetConnectorCategory}`);
-
-    // Get the prefix IDs for source and target elements using the same lookup function as categories
-    const getPrefix = (elementType) => {
-      for (const category of Object.values(prefixDataCellIdsOfDropped)) {
-        if (elementType in category) {
-          return category[elementType];
-        }
-      }
-      return null;
-    };
-
-    const sourcePrefix = getPrefix(sourceElement.type);
-    const targetPrefix = getPrefix(targetElement.type);
+    const sourcePrefix = this.getElementPrefix(sourceElement.type);
+    const targetPrefix = this.getElementPrefix(targetElement.type);
 
     if (!sourcePrefix || !targetPrefix) {
       throw new Error(`Could not find prefix IDs for elements: ${sourceElement.type}, ${targetElement.type}`);

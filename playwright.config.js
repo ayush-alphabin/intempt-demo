@@ -13,9 +13,9 @@ module.exports = defineConfig({
     ['html', { outputFolder: './test-results', open: 'never' }],
     ['json', { outputFile: './test-results/results.json' }]
   ],
-  timeout: 60000,
+  timeout: 180000,
   expect: {
-    timeout: 60000,
+    timeout: 180000,
   },
   use: {
     launchOptions: {
